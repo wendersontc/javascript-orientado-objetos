@@ -1,15 +1,29 @@
 class NegociacaoController{
-	adiciona(event) {
-		event.preventDefault();
-        
+
+	constructor(){
         let $ = document.querySelector.bind(document);
 
-		let inputQuantidade = document.querySelector('#quantidade');
-		let inputData = documet.querySelector('#data');
-		let inputValor = document.querySelector('#valor');
+		this._inputQuantidade = document.querySelector('#quantidade');
+		this._inputData = documet.querySelector('#data');
+		this._inputValor = document.querySelector('#valor');
+	}
+	
+	adiciona(event) {
+		event.preventDefault();
 
-		console.log(inputData.value);
-        console.log(inputQuantidade.value);
-        console.log(inputValor.value);
+		let data = new Date(...
+			this._inputData.value
+			    .split("-")
+			    .map((item,indice) => return item - indice % 2 )
+               
+		);
+        
+		let negociacao = new negociacao(
+           data,
+           this._inputQuantidade.value,
+           this._inputValor.value
+		);
+
+		console.log(negociacao);
 	}
 }
