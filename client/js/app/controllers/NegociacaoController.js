@@ -3,10 +3,16 @@ class NegociacaoController{
 	constructor(){
         let $ = document.querySelector.bind(document);
 
-		this._inputQuantidade = document.querySelector('#quantidade');
-		this._inputData = documet.querySelector('#data');
-		this._inputValor = document.querySelector('#valor');
+		//this._inputQuantidade = document.querySelector('#quantidade');
+		//this._inputData = documet.querySelector('#data');
+		//this._inputValor = document.querySelector('#valor');
+		this._inputQuantidade = $('#quantidade');
+		this._inputData = $('#data');
+		this._inputValor = $('#valor');
 		this._listaNegociacoes = new ListaNegociacoes();
+		this._negociacoesView = new NegociacoesView($('#negociacoesView'));
+
+		this._negociacoesView.update();
 	}
 	
 	adiciona(event) {
